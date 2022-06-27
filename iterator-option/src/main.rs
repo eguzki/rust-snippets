@@ -1,5 +1,3 @@
-use std::convert::identity;
-
 pub struct GatewayAction {
     pub configurations: Option<Vec<i32>>,
 }
@@ -27,7 +25,7 @@ fn main() {
         .gateway_actions
         .iter()
         .map(|ga| &ga.configurations)
-        .flat_map(identity)
+        .flatten()
         .collect::<Vec<_>>();
     println!("configs {:?}", configs); // -> configs [[1, 2, 3], [4, 5, 6]]
 
@@ -49,7 +47,7 @@ fn main() {
         .gateway_actions
         .iter()
         .flat_map(|ga| &ga.configurations)
-        .flat_map(identity)
+        .flatten()
         .collect::<Vec<_>>();
     println!("configs {:?}", configs); // -> configs [1, 2, 3, 4, 5, 6]
 }
