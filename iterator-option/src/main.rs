@@ -41,7 +41,7 @@ fn main() {
         .iter()
         .flat_map(|ga| &ga.configurations)
         .collect::<Vec<_>>();
-    println!("configs {:?}", configs); // ->
+    println!("configs {:?}", configs); // -> configs [[1, 2, 3], [4, 5, 6]]
 
     let configs = rlp
         .gateway_actions
